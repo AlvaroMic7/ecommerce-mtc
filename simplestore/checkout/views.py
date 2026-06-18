@@ -74,5 +74,10 @@ class OrderConfirmationView(DetailView):
     template_name = "order_confirmation.html"
 
     def get_context_data(self, **kwargs):
-        context_data = super(OrderConfirmationView, self).get_context_data()
+        class OrderConfirmationView(DetailView):
+    model = Order
+    template_name = "order_confirmation.html"
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
         return context_data
