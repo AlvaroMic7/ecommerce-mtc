@@ -30,8 +30,7 @@ RUN pip install "pip<21.0" "setuptools<45.0.0" "wheel<0.37.0" "Cython<3.0" \
 
 COPY . /app/
 
-RUN groupadd -r appuser && useradd -r -g appuser appuser
-
-RUN chown -R appuser:appuser /app
+RUN groupadd -r appuser && useradd -r -g appuser appuser \
+    && chown -R appuser:appuser /app
 
 USER appuser
