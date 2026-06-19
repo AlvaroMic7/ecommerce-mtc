@@ -1,4 +1,5 @@
 import datetime
+import uuid
 from decimal import Decimal
 
 from django.contrib.auth.models import AnonymousUser
@@ -55,7 +56,7 @@ class CartViewsTests(TestCase):
 
         return cart_item
 
-    @staticmethod
+@staticmethod
     def _create_testing_user():
         user = Profile(
             email='vomacka@gmail.com',
@@ -66,7 +67,8 @@ class CartViewsTests(TestCase):
             is_admin=False,
             is_staff=False,
         )
-        user.set_password(raw_password='helloworld') # NOSONAR
+        senha_aleatoria = str(uuid.uuid4()) 
+        user.set_password(raw_password=senha_aleatoria)
         user.save()
 
         return user
