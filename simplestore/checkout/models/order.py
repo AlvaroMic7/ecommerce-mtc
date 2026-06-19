@@ -26,7 +26,7 @@ class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
     full_name = models.CharField(max_length=120)
     email = models.EmailField()
-    phone = models.CharField(max_length=120, null=True, blank=True)
+    phone = models.CharField(max_length=120, blank=True)
     status = models.CharField(choices=ORDER_STATUS_CHOICES, max_length=120, default='Created')
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
