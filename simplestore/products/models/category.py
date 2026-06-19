@@ -4,7 +4,7 @@ from filer.fields.image import FilerImageField
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True)
     image = FilerImageField(null=True, blank=True)
     slug = models.SlugField(unique=True)
 
