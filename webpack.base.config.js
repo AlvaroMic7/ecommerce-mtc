@@ -65,6 +65,6 @@ baseConfig.config = {
   }
 };
 
-const config = { ...baseConfig.config, ...prodConfig };
+const config = { ...baseConfig };
 
 module.exports = config;
