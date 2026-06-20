@@ -65,7 +65,6 @@ baseConfig.config = {
   }
 };
 
-const config = Object.assign({}, baseConfig);
 const config = { ...baseConfig.config, ...prodConfig };
 
 module.exports = config;
