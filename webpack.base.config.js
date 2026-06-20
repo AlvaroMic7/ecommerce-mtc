@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const path = require('path');
+const path = require('node:path');
 const BundleTracker = require('webpack-bundle-tracker');
 
 const STATIC_ROOT = './simplestore/static/';
@@ -66,5 +66,6 @@ baseConfig.config = {
 };
 
 const config = Object.assign({}, baseConfig);
+const config = { ...baseConfig.config, ...prodConfig };
 
 module.exports = config;
