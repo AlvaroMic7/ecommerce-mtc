@@ -2123,7 +2123,7 @@ textarea.input-lg, select[multiple].input-lg {
 .has-warning .input-group-addon {
     color: #ffffff;
     border-color: #ffffff;
-    background-color: #ff7518
+    background-color: #b34700
 }
 
 .has-warning .form-control-feedback {
@@ -2149,7 +2149,7 @@ textarea.input-lg, select[multiple].input-lg {
 .has-error .input-group-addon {
     color: #ffffff;
     border-color: #ffffff;
-    background-color: #ff0039
+    background-color: #b30028
 }
 
 .has-error .form-control-feedback {
