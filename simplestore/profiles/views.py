@@ -12,6 +12,7 @@ from simplestore.checkout.models.order import Order
 from .forms import RegistrationForm, LoginForm
 from .models import Profile
 
+LOGIN_URL_NAME = 'profiles:login'
 
 def profile_index(request):
     return render(request, "profile_index.html")
@@ -20,7 +21,7 @@ def profile_index(request):
 # Profile Detail
 class ProfileDetail(LoginRequiredMixin, DetailView):
     template_name = "profile_detail.html"
-    login_url = reverse_lazy('profiles:login')
+    login_url = reverse_lazy(LOGIN_URL_NAME)
     model = Profile
 
     def get_object(self, queryset=None):
@@ -56,7 +57,7 @@ class UpdateProfileForm(LoginRequiredMixin, UpdateView):
     form_class = RegistrationForm
     model = Profile
     success_url = reverse_lazy('homepage')
-    login_url = reverse_lazy('profiles:login')
+    login_url = reverse_lazy(LOGIN_URL_NAME)
 
     def get_object(self, queryset=None):
         return Profile.objects.get(pk=self.request.user.pk)
@@ -65,7 +66,7 @@ class UpdateProfileForm(LoginRequiredMixin, UpdateView):
 class ProfileOrdersView(LoginRequiredMixin, ListView):
     model = Order
     template_name = 'profile_orders.html'
-    login_url = reverse_lazy('profiles:login')
+    login_url = reverse_lazy(LOGIN_URL_NAME)
 
     def get_context_data(self, **kwargs):
         context = super(ProfileOrdersView, self).get_context_data(**kwargs)
@@ -77,7 +78,7 @@ class ProfileOrdersView(LoginRequiredMixin, ListView):
 class ProfileOrderDetailView(LoginRequiredMixin, DetailView):
     model = Order
     template_name = 'profile_order_detail.html'
-    login_url = reverse_lazy('profiles:login')
+    login_url = reverse_lazy(LOGIN_URL_NAME)
 
 
 # Login

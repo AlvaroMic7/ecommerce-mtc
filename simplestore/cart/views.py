@@ -8,6 +8,7 @@ from .forms import AddToCartForm
 from .models import CartItem
 from .utils import get_cart
 
+CART_INDEX_URL = 'cart:index'
 
 class CartView(TemplateView):
     template_name = "cart_index.html"
@@ -32,7 +33,7 @@ class CartView(TemplateView):
 # Removing item from cart
 class RemoveCartItemView(DeleteView):
     model = CartItem
-    success_url = reverse_lazy('cart:index')
+    success_url = reverse_lazy(CART_INDEX_URL)
     success_message = "The item has been deleted from your cart."
     http_method_names = ['post']
 
@@ -47,7 +48,7 @@ class RemoveCartItemView(DeleteView):
 
 class UpdateCartItemView(FormView):
     http_method_names = ['post']
-    success_url = reverse_lazy('cart:index')
+    success_url = reverse_lazy(CART_INDEX_URL)
     form_class = AddToCartForm
     template_name = 'cart_index.html'
     context_object_name = 'cart'
@@ -67,7 +68,7 @@ class UpdateCartItemView(FormView):
 
 class AddToCartView(FormView):
     template_name = 'product_detail.html'
-    success_url = reverse_lazy('cart:index')
+    success_url = reverse_lazy(CART_INDEX_URL)
     http_method_names = ['post']
     form_class = AddToCartForm
 

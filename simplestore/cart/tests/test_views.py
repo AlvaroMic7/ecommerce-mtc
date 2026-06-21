@@ -1,4 +1,5 @@
 import datetime
+import uuid
 from decimal import Decimal
 
 from django.contrib.auth.models import AnonymousUser
@@ -55,7 +56,7 @@ class CartViewsTests(TestCase):
 
         return cart_item
 
-    @staticmethod
+@staticmethod
     def _create_testing_user():
         user = Profile(
             email='vomacka@gmail.com',
@@ -66,7 +67,8 @@ class CartViewsTests(TestCase):
             is_admin=False,
             is_staff=False,
         )
-        user.set_password(raw_password='helloworld')
+        senha_aleatoria = str(uuid.uuid4()) 
+        user.set_password(raw_password=senha_aleatoria)
         user.save()
 
         return user
@@ -145,7 +147,7 @@ class CartViewsTests(TestCase):
             kwargs={'product_id': cart_item.product_id}),
             data={'product_id': cart_item.product_id}, follow=True)
 
-        messages = [msg for msg in get_messages(response.wsgi_request)]
+        messages = list(get_messages(response.wsgi_request))
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(messages[0].tags,
@@ -172,7 +174,7 @@ class CartViewsTests(TestCase):
             data={'cart_item_quantity': '2'}, follow=True
         )
 
-        messages = [msg for msg in get_messages(response.wsgi_request)]
+        messages = list(get_messages(response.wsgi_request))
 
         updated_quantity = response.context['cart'].items.first().quantity
         cart_item.quantity = updated_quantity
@@ -228,7 +230,7 @@ class CartViewsTests(TestCase):
         response.session = session
         response.user = test_user
 
-        cart, created = Cart.objects.get_or_create(
+        cart, _ = Cart.objects.get_or_create(
             session_key=response.session['user_cart'], user=response.user)
         cart.save()
 

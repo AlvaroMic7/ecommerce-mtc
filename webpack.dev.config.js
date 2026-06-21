@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const path = require('path');
+const path = require('node:path');
 const BundleTracker = require('webpack-bundle-tracker');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -48,6 +48,6 @@ const devConfig = {
   ],
 };
 
-const config = Object.assign({}, baseConfig.config, devConfig);
+const config = { ...baseConfig.config, ...devConfig };
 
 module.exports = config;

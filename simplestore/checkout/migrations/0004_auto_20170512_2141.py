@@ -4,9 +4,9 @@ from __future__ import unicode_literals
 import uuid
 from django.db import migrations
 
-def gen_uuid(apps,schema_editor):
-    Order = apps.get_model('checkout', 'Order')
-    for row in Order.objects.all():
+def gen_uuid(apps, schema_editor):
+    order_model = apps.get_model('checkout', 'Order')
+    for row in order_model.objects.all():
         row.uuid = uuid.uuid4()
         row.save(update_fields=['uuid'])
 
