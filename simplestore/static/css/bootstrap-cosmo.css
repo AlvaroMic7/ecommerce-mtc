@@ -25,7 +25,8 @@ body {
     font-size: 15px;
     line-height: 1.42857143;
     color: #333333;
-    background-color: #ffffff
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -4941,8 +4942,8 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 
 .panel-primary > .panel-heading {
     color: #ffffff;
-    background-color: #2780e3;
-    border-color: #2780e3
+    background-color: #1a5b99;
+    border-color: #1a5b99
 }
 
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
@@ -4950,7 +4951,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-primary > .panel-heading .badge {
-    color: #2780e3;
+    color: #1a5b99;
     background-color: #ffffff
 }
 
@@ -4964,8 +4965,8 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 
 .panel-success > .panel-heading {
     color: #ffffff;
-    background-color: #3fb618;
-    border-color: #4e9f15
+    background-color: #22660d;
+    border-color: #154008
 }
 
 .panel-success > .panel-heading + .panel-collapse > .panel-body {
@@ -4973,7 +4974,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-success > .panel-heading .badge {
-    color: #3fb618;
+    color: #22660d;
     background-color: #ffffff
 }
 
@@ -5009,7 +5010,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-warning > .panel-heading {
-    color: #ffffff;
+    color: #333333;
     background-color: #ff7518;
     border-color: #ff4309
 }
@@ -5019,7 +5020,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-warning > .panel-heading .badge {
-    color: #ff7518;
+    color: #333333;
     background-color: #ffffff
 }
 
@@ -5033,8 +5034,8 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 
 .panel-danger > .panel-heading {
     color: #ffffff;
-    background-color: #ff0039;
-    border-color: #f0005e
+    background-color: #b30028;
+    border-color: #990022
 }
 
 .panel-danger > .panel-heading + .panel-collapse > .panel-body {
@@ -5042,7 +5043,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-danger > .panel-heading .badge {
-    color: #ff0039;
+    color: #b30028;
     background-color: #ffffff
 }
 
@@ -6083,11 +6084,7 @@ button.close {
 
 .navbar-inverse .badge {
     background-color: #fff;
-    color: #2780e3
-}
-
-body {
-    -webkit-font-smoothing: antialiased
+    color: #1a5b99
 }
 
 .text-primary, .text-primary:hover {
